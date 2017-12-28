@@ -12,7 +12,8 @@ public class Song
     private int duration;
     private int ismusic;
 
-    public Song(long id, String title, String artist, int duration, int ismusic) {
+    public Song(long id, String title, String artist, int duration, int ismusic)
+    {
         this.id = id;
         this.title = title;
         this.artist = artist;
@@ -27,9 +28,7 @@ public class Song
         return duration;
     }
 
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
+    public void setDuration(int duration) {this.duration = duration;}
 
     public long getId() {
 

@@ -30,10 +30,29 @@ public class SongAdapter extends ArrayAdapter<Song>
     TextView txtsngnme;
     TextView txtartstnme;
     TextView duratn;
+    ArrayList<Song> Songinst;
+
 
     public SongAdapter(Context context, ArrayList<Song> songs)
     {
         super(context,0,songs);
+        Songinst = songs;
+    }
+
+    @Override
+    public int getCount() {
+        return Songinst.size();
+    }
+
+    @Nullable
+    @Override
+    public Song getItem(int position) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
     }
 
     @NonNull
@@ -46,7 +65,7 @@ public class SongAdapter extends ArrayAdapter<Song>
             view = LayoutInflater.from(getContext()).inflate(R.layout.list_sngcstm,parent,false);
         }
 
-        Song song = getItem(position);
+        Song song = Songinst.get(position);
 
         txtsngnme = view.findViewById(R.id.txtvw_sngnme);
         txtartstnme = view.findViewById(R.id.txtvw_artist);
@@ -70,7 +89,7 @@ public class SongAdapter extends ArrayAdapter<Song>
 
         finalTimerString = minutes + ":" + secondsString;
         duratn.setText(finalTimerString);
-
+        view.setTag(position);
         return view;
     }
 }
